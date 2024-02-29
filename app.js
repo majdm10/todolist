@@ -24,8 +24,9 @@ app.post("/addTodo", (req, res) => {
   newTodo.save().then(() => res.redirect("/"));
 });
 
-app.post("/deleteTodo", (req, res) => {
-  Todo.findByIdAndRemove(req.body.todoId).then(() => res.redirect("/"));
+app.post("/addTodo", (req, res) => {
+  const newTodo = new Todo({ content: req.body.content });
+  newTodo.save().then(() => res.redirect("/"));
 });
 
 app.listen(port, () => {
